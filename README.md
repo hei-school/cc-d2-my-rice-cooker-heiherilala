@@ -1,1 +1,10 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/PHq8Kfj_)
+# Rice Cooker Simulation
+
+## Prerequisites
+
+- [Go](https://golang.org/) installed on your machine.
+
+## Description
+
+This project is a command-line application written in Go that simulates a rice cooker. Users can choose recipes, add ingredients, and initiate the cooking process. The application follows object-oriented programming principles, utilizes a clean code structure, and employs error handling with try-catch patterns.
+
