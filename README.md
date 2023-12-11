@@ -13,10 +13,6 @@ This project is a CLI-based simulation of a rice cooker, allowing users to choos
 
 1. Clone the repository to your local machine:
 
-    ```bash
-    git clone https://github.com/yourusername/rice-cooker-simulation.git
-    ```
-
 2. Navigate to the project directory:
 
     ```bash
@@ -47,9 +43,11 @@ The project follows basic PHP coding standards. Key points include:
 - Descriptive variable and function names.
 - Error handling using try-catch blocks.
 
+Coding standards: PSR (PHP-FIG) is a popular recommendation for PHP coding standards.
+
 ## Linter
 
-The project uses a basic linter for code quality checks. To run the linter:
-
-```bash
-php -l rice-cooker.php
+PHP_CodeSniffer
+            To install PHP_CodeSniffer, you can use Composer: compose global require "squizlabs/php_codesniffer=*"
+            In VSCode, you can install the "PHP CodeSniffer" extension for integration.
+        
