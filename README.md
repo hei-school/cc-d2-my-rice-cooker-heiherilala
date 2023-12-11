@@ -37,3 +37,8 @@ This project follows the Kotlin Coding Conventions. Some key points include:
 The project utilizes ktlint as a linter for Kotlin code. Make sure to run ktlint before committing changes:
 
     ktlint src/**/*.kt
+
+Or
+
+You can install Ktlint using brew install ktlint on macOS or by downloading the JAR file from GitHub.
+            The "Kotlin Language" extension for VSCode integrates with Ktlint.
