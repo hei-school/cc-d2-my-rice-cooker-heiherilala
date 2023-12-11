@@ -5,25 +5,25 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-	"strings"
 )
 
 // Cooker represents the state of the rice cooker.
 type Cooker struct {
-	PluggedIn       bool
-	RecipeChosen    bool
-	Ingredients     map[string]int
-	Temperature     int
-	CookingDuration int
+	pluggedIn       bool
+	recipeChosen    bool
+	ingredients     map[string]int
+	temperature     int
+	cookingDuration int
 }
 
 // NewCooker initializes a new Cooker instance.
 func NewCooker() *Cooker {
 	return &Cooker{
-		PluggedIn:    false,
-		RecipeChosen: false,
-		Ingredients:  make(map[string]int),
-		Temperature:  0,
+		pluggedIn:       false,
+		recipeChosen:    false,
+		ingredients:     make(map[string]int),
+		temperature:     0,
+		cookingDuration: 0,
 	}
 }
 
@@ -66,7 +66,7 @@ func (c *Cooker) AddIngredient() {
 			continue
 		}
 
-		c.Ingredients[ingredient] = quantity
+		c.ingredients[ingredient] = quantity
 
 		fmt.Println("1>->-> Add another ingredient")
 		fmt.Println("2>->-> Close the rice cooker and start cooking")
@@ -91,18 +91,18 @@ func (c *Cooker) AddIngredient() {
 func (c *Cooker) StartCooking() {
 	fmt.Println("Cooking started:")
 	fmt.Println("The dish is ready!")
-	fmt.Println("Ingredients used:", c.Ingredients)
-	fmt.Println("Temperature:", c.Temperature, "°C")
-	fmt.Println("Duration:", c.CookingDuration, "minutes")
+	fmt.Println("Ingredients used:", c.ingredients)
+	fmt.Println("Temperature:", c.temperature, "°C")
+	fmt.Println("Duration:", c.cookingDuration, "minutes")
 	c.CancelOperation()
 }
 
 // CancelOperation resets the cooker state to its initial values.
 func (c *Cooker) CancelOperation() {
-	c.RecipeChosen = false
-	c.Ingredients = make(map[string]int)
-	c.Temperature = 0
-	c.CookingDuration = 0
+	c.recipeChosen = false
+	c.ingredients = make(map[string]int)
+	c.temperature = 0
+	c.cookingDuration = 0
 }
 
 func main() {
@@ -119,9 +119,9 @@ func main() {
 
 		switch choice {
 		case 1, 2, 3:
-			cooker.RecipeChosen = true
-			cooker.Temperature = 100 // Assuming a default temperature of 100°C
-			cooker.CookingDuration = 30 // Assuming a default cooking duration of 30 minutes
+			cooker.recipeChosen = true
+			cooker.temperature = 100 // Assuming a default temperature of 100°C
+			cooker.cookingDuration = 30 // Assuming a default cooking duration of 30 minutes
 			cooker.AddIngredient()
 			cooker.StartCooking()
 		default:
