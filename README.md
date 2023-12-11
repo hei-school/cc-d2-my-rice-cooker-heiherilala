@@ -14,23 +14,19 @@ This project simulates a rice cooker through a console application written in C#
 
 1. Clone the repository to your local machine.
 
-2. Navigate to the project directory.
+2. Install mono
+
+3. Build the project using mono:
 
     ```bash
-    cd your-project
-    ```
-
-3. Build the project using the .NET CLI.
-
-    ```bash
-    dotnet build
+    mcs RiceCooker.cs    
     ```
 
 ## Execution
 
-To run the project, use the following command:
+To run the project .exe, use the following command:
     ```bash
-    dotnet run
+    mono RiceCooker.exe  
     ```
 
 Follow the on-screen instructions to interact with the simulated rice cooker.
