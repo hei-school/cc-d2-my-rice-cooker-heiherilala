@@ -5,34 +5,34 @@ class Program
 {
     static void Main()
     {
-        RiceCooker riceCooker = new RiceCooker();
+        var riceCooker = new RiceCooker();
 
         while (true)
         {
-            Console.WriteLine("Choisir votre action:");
-            Console.WriteLine("1>->-> Riz");
-            Console.WriteLine("2>->-> Eau chaude");
-            Console.WriteLine("3>->-> Soupe");
-            Console.WriteLine("4>->-> Quitter");
+            Console.WriteLine("Choose your action:");
+            Console.WriteLine("1>->-> Rice");
+            Console.WriteLine("2>->-> Hot Water");
+            Console.WriteLine("3>->-> Soup");
+            Console.WriteLine("4>->-> Quit");
 
-            string choice = GetUserInput("Entrez votre choix:");
+            string choice = GetUserInput("Enter your choice:");
 
             switch (choice)
             {
                 case "1":
-                    riceCooker.PrepareRecipe("Riz");
+                    riceCooker.PrepareRecipe("Rice");
                     break;
                 case "2":
-                    riceCooker.PrepareRecipe("Eau chaude");
+                    riceCooker.PrepareRecipe("Hot Water");
                     break;
                 case "3":
-                    riceCooker.PrepareRecipe("Soupe");
+                    riceCooker.PrepareRecipe("Soup");
                     break;
                 case "4":
                     Environment.Exit(0);
                     break;
                 default:
-                    Console.WriteLine("Choix invalide. Veuillez réessayer.");
+                    Console.WriteLine("Invalid choice. Please try again.");
                     break;
             }
         }
@@ -57,11 +57,11 @@ class RiceCooker
 
     public void PrepareRecipe(string recipe)
     {
-        Console.WriteLine($"Préparation de {recipe}");
-        Console.WriteLine("1>->-> Ouvrir le rice-cooker et ajouter des ingrédients");
-        Console.WriteLine("2>->-> Annuler");
+        Console.WriteLine($"Preparing {recipe}");
+        Console.WriteLine("1>->-> Open the rice-cooker and add ingredients");
+        Console.WriteLine("2>->-> Cancel");
 
-        string choice = GetUserInput("Entrez votre choix:");
+        string choice = GetUserInput("Enter your choice:");
 
         switch (choice)
         {
@@ -69,10 +69,10 @@ class RiceCooker
                 AddIngredients();
                 break;
             case "2":
-                Console.WriteLine("Opération annulée. Retour au menu principal.");
+                Console.WriteLine("Operation canceled. Back to the main menu.");
                 break;
             default:
-                Console.WriteLine("Choix invalide. Veuillez réessayer.");
+                Console.WriteLine("Invalid choice. Please try again.");
                 break;
         }
     }
@@ -81,28 +81,28 @@ class RiceCooker
     {
         do
         {
-            Console.WriteLine("Ajout d'ingrédient:");
-            string ingredientName = GetUserInput(">->-> Ingrédient (ex: eau):");
+            Console.WriteLine("Add Ingredient:");
+            string ingredientName = GetUserInput(">->-> Ingredient (e.g., water):");
 
             if (string.IsNullOrWhiteSpace(ingredientName))
             {
-                Console.WriteLine("Le nom de l'ingrédient ne peut pas être vide. Veuillez réessayer.");
+                Console.WriteLine("Ingredient name cannot be empty. Please try again.");
                 continue;
             }
 
             int quantity;
-            if (!TryGetPositiveNumber("Quantité en gramme:", out quantity))
+            if (!TryGetPositiveNumber("Quantity in grams:", out quantity))
             {
                 continue;
             }
 
             ingredients.Add(new Ingredient { Name = ingredientName, Quantity = quantity });
 
-            Console.WriteLine("1>->-> Ajouter un autre ingrédient");
-            Console.WriteLine("2>->-> Fermer le rice-cooker et démarrer la préparation");
-            Console.WriteLine("3>->-> Annuler");
+            Console.WriteLine("1>->-> Add another ingredient");
+            Console.WriteLine("2>->-> Close the rice-cooker and start cooking");
+            Console.WriteLine("3>->-> Cancel");
 
-            string choice = GetUserInput("Entrez votre choix:");
+            string choice = GetUserInput("Enter your choice:");
 
             switch (choice)
             {
@@ -112,11 +112,11 @@ class RiceCooker
                     DisplayResult();
                     return;
                 case "3":
-                    Console.WriteLine("Opération annulée. Retour à l'ajout d'ingrédient.");
+                    Console.WriteLine("Operation canceled. Back to adding ingredients.");
                     ingredients.Clear();
                     return;
                 default:
-                    Console.WriteLine("Choix invalide. Veuillez réessayer.");
+                    Console.WriteLine("Invalid choice. Please try again.");
                     break;
             }
 
@@ -125,16 +125,16 @@ class RiceCooker
 
     private void DisplayResult()
     {
-        Console.WriteLine("Résultat de la préparation:");
-        Console.WriteLine("Le plat est prêt");
-        Console.WriteLine("Liste d'ingrédients:");
+        Console.WriteLine("Cooking Result:");
+        Console.WriteLine("The dish is ready");
+        Console.WriteLine("List of Ingredients:");
 
         foreach (var ingredient in ingredients)
         {
             Console.WriteLine($"{ingredient.Name}: {ingredient.Quantity}g");
         }
 
-        Console.WriteLine("Retour au menu principal. Opérations annulées.");
+        Console.WriteLine("Back to the main menu. Operations canceled.");
         ingredients.Clear();
     }
 
@@ -149,7 +149,7 @@ class RiceCooker
                 return true;
             }
 
-            Console.WriteLine("Veuillez entrer un nombre positif. Veuillez réessayer.");
+            Console.WriteLine("Please enter a positive number. Please try again.");
 
         } while (true);
     }
